@@ -10,6 +10,6 @@ public class PageRedirectData
 
     public PageRedirectData()
     {
-        SeoPageMap = new Dictionary<string, sring>(16);
+        SeoPageMap = new Dictionary<string, string>(16);
     }
 }

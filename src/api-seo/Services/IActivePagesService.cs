@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using api_seo.Models;
 
 namespace api_seo.Services
 {
