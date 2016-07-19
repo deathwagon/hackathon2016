@@ -7,8 +7,8 @@ using api_seo.Models;
 
 namespace api_seo.Controllers
 {
-    [Route("seo/v1/ActivePages")]
-    public class ActivatePagesController : Controller
+    [Route("seo/v1/redirect")]
+    public class ActivePagesController : Controller
     {
         // GET api/values
         [HttpGet]
