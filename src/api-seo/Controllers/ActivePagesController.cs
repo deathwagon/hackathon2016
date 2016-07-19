@@ -34,6 +34,7 @@ namespace api_seo.Controllers
         [HttpPost]
         public void Post([FromBody]PageDataModel value)
         {
+            
         }
 
         [HttpPut("{id}")]
