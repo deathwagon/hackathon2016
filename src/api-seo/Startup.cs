@@ -33,6 +33,7 @@ namespace api_seo
 
             services.AddTransient<IActivePagesService, ActivePagesService>();
             services.AddTransient<IRedirectService, RedirectService>();
+            services.AddTransient<IPageUrlService, PageUrlService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
