@@ -1,4 +1,7 @@
-public interface IPageUrlService 
+namespace api_seo.Services
 {
-     string GetMarket(string pageUrl);
+   public interface IPageUrlService 
+    {
+        string GetMarket(string pageUrl);
+    }
 }

@@ -2,27 +2,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class PageUrlService : IPageUrlService
-{
-    public string GetMarket(string pageUrl)
+namespace api_seo.Services
+{   
+    public class PageUrlService : IPageUrlService
     {
-        var result = string.Empty;
-        
-        Uri pageUri;
-        if (Uri.TryCreate(pageUrl, UriKind.Absolute, out pageUri))
+        public string GetMarket(string pageUrl)
         {
-            int iqs = pageUrl.IndexOf('?');
-            if (iqs > 0)
+            var result = string.Empty;
+            
+            Uri pageUri;
+            if (Uri.TryCreate(pageUrl, UriKind.Absolute, out pageUri))
             {
-                Dictionary<string, string> dicQueryString = 
-                        pageUrl.Substring(iqs+1).Split('&')
-                            .ToDictionary(c => c.Split('=')[0],
-                                        c => Uri.UnescapeDataString(c.Split('=')[1]));
+                int iqs = pageUrl.IndexOf('?');
+                if (iqs > 0)
+                {
+                    Dictionary<string, string> dicQueryString = 
+                            pageUrl.Substring(iqs+1).Split('&')
+                                .ToDictionary(c => c.Split('=')[0],
+                                            c => Uri.UnescapeDataString(c.Split('=')[1]));
 
-                result = dicQueryString["market"];     
+                    result = dicQueryString["market"];     
+                }
             }
-        }
 
-        return !string.IsNullOrEmpty(result) ? result : "en";
+            return !string.IsNullOrEmpty(result) ? result : "en";
+        }
     }
 }
