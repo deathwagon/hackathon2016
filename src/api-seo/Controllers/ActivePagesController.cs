@@ -18,6 +18,7 @@ namespace api_seo.Controllers
             _activePagesService = activePagesService;
         }
 
+        [HttpGet]
         public IEnumerable<PageData> Get(string appId, string market)
         {
             var result = _activePagesService.GetAll(appId, market);

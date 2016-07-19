@@ -1,6 +1,6 @@
 namespace api_seo.Services
 {
-    public interface IActivePagesService
+    public interface IRedirectService
     {
         PageRedirectData GetRedirectData(string appId, string market, string path);
     }

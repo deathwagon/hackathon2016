@@ -6,7 +6,7 @@ namespace api_seo.Services
     {
         public RedirectService()
         {
-
+            
         }
         
         public PageRedirectData GetRedirectData(string appId, string market, string path)

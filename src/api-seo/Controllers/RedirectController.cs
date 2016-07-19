@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using api_seo.Controllers;
 using api_seo.Services;
 
 namespace api_seo.Controllers

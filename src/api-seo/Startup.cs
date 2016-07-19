@@ -32,6 +32,7 @@ namespace api_seo
             services.AddMvc();
 
             services.AddTransient<IActivePagesService, ActivePagesService>();
+            services.AddTransient<IRedirectService, RedirectService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
