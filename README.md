@@ -12,3 +12,7 @@
 
         docker-compose down
 
+## Test
+
+        CQLSH_HOST=192.168.99.100 cqlsh
+        cqlsh> SELECT * FROM seo.applications;
