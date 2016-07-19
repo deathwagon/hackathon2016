@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using api_seo.Services;
 
 namespace api_seo
 {
@@ -29,6 +30,11 @@ namespace api_seo
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddTransient<IActivePagesService, ActivePagesService>();
+            services.AddTransient<IRedirectService, RedirectService>();
+            services.AddTransient<IPageUrlService, PageUrlService>();
+            services.AddSingleton<ICassandraData, CassandraData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
