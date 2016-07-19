@@ -18,10 +18,31 @@ namespace api_seo.Controllers
             _activePagesService = activePagesService;
         }
 
-        public PageRedirectData Get(string appId, string market, string path)
+        public IEnumerable<PageData> Get(string appId, string market)
         {
-            var result = _activePagesService.GetRedirectData(appId, market, path);
+            var result = _activePagesService.GetAll(appId, market);
             return result;
+        }
+
+        [HttpGet("{id}")]
+        public PageDataModel Get(Guid id)
+        {
+            return new PageDataModel();
+        }
+
+        [HttpPost]
+        public void Post([FromBody]PageDataModel value)
+        {
+        }
+
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]PageDataModel value)
+        {
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
         }
     }
 }
