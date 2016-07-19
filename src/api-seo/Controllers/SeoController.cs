@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using api_seo.Models;
 
 namespace api_seo.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Route("seo/v1/ActivePages")]
+    public class ActivatePagesController : Controller
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<ActivePage> Get(string appId, string market, string path)
         {
-            return new string[] { "value1", "value2" };
+            var result = GetActivePages(appId, market, path);
+            return result;
+        }
+
+        public IEnumerable<ActivePage> GetActivePages(string appId, string market, string path)
+        {
+            return new [] {
+                new ActivePage { Name = "Sample 1", EnPath = "/something/or/other" },
+                new ActivePage { Name = "Sample 2", EnPath = "/something/else" },
+            };
         }
 
         // GET api/values/5
