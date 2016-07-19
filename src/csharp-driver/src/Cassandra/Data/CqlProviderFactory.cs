@@ -52,31 +52,5 @@ namespace Cassandra.Data
             throw new NotSupportedException();
         }
 
-#if !NETCORE
-        public override bool CanCreateDataSourceEnumerator
-        {
-            get { return false; }
-        }
-
-        public override DbCommandBuilder CreateCommandBuilder()
-        {
-            return new CqlCommandBuilder();
-        }
-
-        public override DbDataAdapter CreateDataAdapter()
-        {
-            return new CqlDataAdapter();
-        }
-
-        public override DbDataSourceEnumerator CreateDataSourceEnumerator()
-        {
-            throw new NotSupportedException();
-        }
-
-        public override System.Security.CodeAccessPermission CreatePermission(System.Security.Permissions.PermissionState state)
-        {
-            throw new NotSupportedException();
-        }
-#endif
     }
 }

@@ -399,11 +399,7 @@ namespace Cassandra
             }
             else if (Options.Compression == CompressionType.LZ4)
             {
-#if !NETCORE
-                Compressor = new LZ4Compressor();
-#else
                 return TaskHelper.FromException<Response>(new NotSupportedException("Lz4 compression not supported under .NETCore"));
-#endif
             }
             else if (Options.Compression == CompressionType.Snappy)
             {
