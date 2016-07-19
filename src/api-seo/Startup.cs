@@ -32,7 +32,7 @@ namespace api_seo
             services.AddMvc();
 
             services.AddTransient<IActivePagesService, ActivePagesService>();
-            services.AddTransient<IRedirectService, RedirectService>();
+            services.AddTransient<IPageLookupService, PageLookupService>();
             services.AddTransient<IPageUrlService, PageUrlService>();
             services.AddSingleton<ICassandraData, CassandraData>();
         }
