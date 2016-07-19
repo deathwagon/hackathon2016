@@ -3,49 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using api_seo.Models;
+using api_seo.Controllers;
+using api_seo.Services;
 
 namespace api_seo.Controllers
 {
-    [Route("seo/v1/redirect")]
+    [Route("seo/v1/ActivePages")]
     public class ActivePagesController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<ActivePage> Get(string appId, string market, string path)
+        private readonly IActivePagesService _activePagesService;
+
+        public ActivePagesController(IActivePagesService activePagesService)
         {
-            var result = GetActivePages(appId, market, path);
+            _activePagesService = activePagesService;
+        }
+
+        [HttpGet]
+        public IEnumerable<PageData> Get(string appId, string market)
+        {
+            var result = _activePagesService.GetAll(appId, market);
             return result;
         }
 
-        public IEnumerable<ActivePage> GetActivePages(string appId, string market, string path)
-        {
-            return new [] {
-                new ActivePage { Name = "Sample 1", EnPath = "/something/or/other" },
-                new ActivePage { Name = "Sample 2", EnPath = "/something/else" },
-            };
-        }
-
-        // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public PageDataModel Get(Guid id)
         {
-            return "value";
+            return new PageDataModel();
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]PageDataModel value)
         {
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]PageDataModel value)
         {
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
