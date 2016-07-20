@@ -17,7 +17,7 @@ namespace api_seo.Controllers
             _pageLookupService = pageLookupService;
         }
 
-        [HttpGet("{appId}/{market}/{path}")]
+        [HttpGet("{appId}/{market}")]
         public ActionResult Get(string appId, string market, string path)
         {
             var result = _pageLookupService.GetPage(appId, market, path);
