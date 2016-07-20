@@ -33,8 +33,7 @@ namespace web.Controllers
 
         private PageLookupData LookupPageData(string path, string market)
         {
-            // http://localhost:5002/seo/v1/pagelookup/1/es-ES?path=%2Fhosting%2Fweb-hosting
-            var urlBuilder = new UriBuilder("http://localhost:5002");
+            var urlBuilder = new UriBuilder("http://seo-api:5002");
             urlBuilder.Path = $"/seo/v1/pagelookup/1/{market}";
             var encodedPath = path.Replace("/", "%2F");
             urlBuilder.Query = $"?path={encodedPath}";
