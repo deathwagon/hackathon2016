@@ -35,10 +35,5 @@ namespace Cassandra
         {
         }
 
-#if !NETCORE
-        protected FunctionFailureException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
-#endif
     }
 }

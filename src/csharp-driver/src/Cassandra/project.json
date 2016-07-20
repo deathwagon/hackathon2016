@@ -6,16 +6,6 @@
     "publicSign": true
   },
   "frameworks": {
-    "net452": {
-      "frameworkAssemblies": {
-        "System.Data": "",
-        "System.Numerics": "",
-        "System.Xml":  ""
-      },
-      "dependencies": {
-        "lz4net": "1.0.10.93"
-      }
-    },
     "netcoreapp1.0": {
       "buildOptions": {
         "define": [ "NETCORE" ]

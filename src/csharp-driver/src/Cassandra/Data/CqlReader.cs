@@ -78,18 +78,6 @@ namespace Cassandra.Data
             enumerRows = enumRows.GetEnumerator();
         }
 
-#if !NETCORE
-        public override void Close()
-        {
-
-        }
-
-        public override DataTable GetSchemaTable()
-        {
-            throw new NotSupportedException();
-        }
-#endif
-
         /// <inheritdoc />
         public override bool GetBoolean(int ordinal)
         {

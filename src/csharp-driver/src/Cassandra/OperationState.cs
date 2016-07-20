@@ -123,11 +123,7 @@ namespace Cassandra
             }
             //When the data is received, invoke on receive callback
             var callback = Interlocked.Exchange(ref _callback, (_, __) => onReceive());
-#if !NETCORE
-            Thread.MemoryBarrier();
-#else
             Interlocked.MemoryBarrier();
-#endif
             _timeoutCallbackSet = true;
             Task.Factory.StartNew(() => callback(ex, null), CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
             return true;
