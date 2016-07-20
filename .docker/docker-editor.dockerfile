@@ -1,8 +1,8 @@
 FROM microsoft/dotnet:latest
 
-COPY . /app
+COPY ./src /app
 
-WORKDIR /app
+WORKDIR /app/web-editor-seo
 
 RUN ["dotnet", "restore"]
 
