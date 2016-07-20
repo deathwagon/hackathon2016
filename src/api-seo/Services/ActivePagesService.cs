@@ -48,7 +48,7 @@ namespace api_seo.Services
                     pageDataModel.Version = row.GetValue<int>("version");
                     //pageDataModel.Data = row.GetValue<Dictionary<string, string>>("data");
 
-                    var data = row.GetValue<string>("data");
+                    //var data = row.GetValue<string>("data");
 
                     pageDataModel.MarketPath = row.GetValue<string>("market_path");
 
