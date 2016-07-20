@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using api_seo.Models;
+using Newtonsoft.Json;
 
 namespace api_seo.Services
 {
@@ -15,10 +16,10 @@ namespace api_seo.Services
 
         public IEnumerable<PageDataModel> GetAll(string appId, string market)
         {
-            var stmt = "SELECT * FROM seo.pages_data_active;";
+            var stmt = "SELECT * FROM seo.pages_data_active";
             if (!string.IsNullOrEmpty(appId))
             {
-                stmt = stmt + " WHERE appId = " + appId;
+                stmt = stmt + " WHERE app_id = " + appId;
             }
             
             if (!string.IsNullOrEmpty(market))
@@ -32,7 +33,8 @@ namespace api_seo.Services
                     stmt = stmt + " WHERE market = " + market;
                 }
             }
-
+            stmt = stmt + ";";
+            
             var rs = _database.ActiveSession.Execute(stmt);
  
             var lst = new List<PageDataModel>();
@@ -46,9 +48,9 @@ namespace api_seo.Services
                     pageDataModel.PageId = row.GetValue<string>("page_id");
                     pageDataModel.Market = row.GetValue<string>("market");
                     pageDataModel.Version = row.GetValue<int>("version");
-                    //pageDataModel.Data = row.GetValue<Dictionary<string, string>>("data");
 
-                    //var data = row.GetValue<string>("data");
+                    var data = row.GetValue<SortedDictionary<string, string>>("data");
+                    pageDataModel.Data = new Dictionary<string,string>(data);
 
                     pageDataModel.MarketPath = row.GetValue<string>("market_path");
 
