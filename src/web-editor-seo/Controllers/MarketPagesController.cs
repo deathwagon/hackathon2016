@@ -4,14 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using web_editor_seo.Models;
+using web_editor_seo.Services;
 
 namespace web_editor_seo.Controllers
 {
     public class MarketPagesController : Controller
     {
-        public IActionResult Index()
+        private readonly IMarketPagesService _marketPagesServices;
+        public MarketPagesController(IMarketPagesService marketPagesService)
         {
-            return View("Index", new MarketPagesModel());
+            _marketPagesServices = marketPagesService;
+        }
+
+        public IActionResult Index(string pageId)
+        {
+            return View("Index", _marketPagesServices.GetMarketPages(pageId));
         }
     }
 }
