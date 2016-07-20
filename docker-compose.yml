@@ -27,7 +27,7 @@ services:
             context: .
             dockerfile: .docker/docker-web.dockerfile
         ports:
-            - "5003:5003"
+            - "5280:5280"
         networks:
             - seo-app-network
      

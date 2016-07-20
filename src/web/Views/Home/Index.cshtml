@@ -1,5 +1,12 @@
+@model PageLookupData
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = Model.PageData.Data["title"];
 }
 
-<div>You have died of dysentery.</div>
+<div>@Model.StatusCode</div>
+<div>@Model.PageData.PageId</div>
+<div>@Model.PageData.Market</div>
+<div>@Model.PageData.MarketPath</div>
+<div>@Model.PageData.Data["title"]</div>
+<div>@Model.PageData.Data["meta-description"]</div>
