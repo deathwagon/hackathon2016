@@ -1,8 +1,8 @@
 FROM microsoft/dotnet:latest
 
-COPY . /app
+COPY ./src /app
 
-WORKDIR /app
+WORKDIR /app/web-editor-seo
 
 RUN ["dotnet", "restore"]
 
@@ -10,4 +10,4 @@ RUN ["dotnet", "build"]
 
 EXPOSE 5001/tcp
 
-ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:5000"]
+ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:5001"]

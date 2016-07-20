@@ -1,13 +1,13 @@
 FROM microsoft/dotnet:latest
 
-COPY ./src/web /app
+COPY ./src /app
 
-WORKDIR /app
+WORKDIR /app/web
 
 RUN ["dotnet", "restore"]
 
 RUN ["dotnet", "build"]
 
-EXPOSE 5000/tcp
+EXPOSE 5003/tcp
 
-ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:5000"]
+ENTRYPOINT ["dotnet", "run", "--server.urls", "http://0.0.0.0:5003"]

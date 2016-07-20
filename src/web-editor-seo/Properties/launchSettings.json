@@ -18,7 +18,7 @@
     "web_editor_seo": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5001",
+      "launchUrl": "http://0.0.0.0:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
