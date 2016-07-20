@@ -52,8 +52,29 @@ namespace web_editor_seo
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "applications",
+                    template: "{controller=Applications}/{action=Index}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "pages",
+                    template: "pages/{controller=Pages}/{action=Index}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "marketpages",
+                    template: "marketpages/{controller=MarketPages}/{action=Index}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "pagedata",
+                    template: "pagedata/{controller=PageData}/{action=Index}");
             });
         }
     }
