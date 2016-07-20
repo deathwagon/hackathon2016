@@ -26,9 +26,6 @@ namespace Cassandra.Data
     /// </summary>
     /// <inheritdoc />
     public class CqlConnection : DbConnection
-#if !NETCORE
-        , ICloneable 
-#endif
     {
         private CassandraConnectionStringBuilder _connectionStringBuilder;
         private readonly static ConcurrentDictionary<string, Cluster> _clusters = new ConcurrentDictionary<string, Cluster>();
@@ -131,10 +128,6 @@ namespace Cassandra.Data
         {
             get { return ManagedConnection == null ? null : ManagedConnection.Keyspace; }
         }
-
-#if !NETCORE
-        protected override DbProviderFactory DbProviderFactory { get { return CqlProviderFactory.Instance; } }
-#endif
 
         /// <inheritdoc />
         public override void Open()

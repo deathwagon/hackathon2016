@@ -257,11 +257,7 @@ namespace Cassandra.Mapping.TypeConversion
                 throw new ArgumentException("The provided method must be static.", "method");
             }
             var delegateType = Expression.GetFuncType(method.GetParameters().Select(p => p.ParameterType).ToArray());
-#if !NETCORE
-            return Delegate.CreateDelegate(delegateType, null, method);
-#else
             return method.CreateDelegate(delegateType);
-#endif
         }
     }
 }

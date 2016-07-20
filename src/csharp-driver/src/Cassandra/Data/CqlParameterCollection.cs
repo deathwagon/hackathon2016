@@ -52,35 +52,6 @@ namespace Cassandra.Data
             get { return _syncLock; }
         }
 
-#if !NETCORE
-        /// <summary>
-        /// Specifies whether the collection is a fixed size.
-        /// </summary>
-        /// <returns>true if the collection is a fixed size; otherwise false.</returns>
-        public override bool IsFixedSize
-        {
-            get { return IsReadOnly; }
-        }
-
-        /// <summary>
-        /// Specifies whether the collection is read-only.
-        /// </summary>
-        /// <returns>true if the collection is read-only; otherwise false.</returns>
-        public override bool IsReadOnly
-        {
-            get { return false; }
-        }
-
-        /// <summary>
-        /// Specifies whether the collection is synchronized.
-        /// </summary>
-        /// <returns>true if the collection is synchronized; otherwise false.</returns>
-        public override bool IsSynchronized
-        {
-            get { return false; }
-        }
-#endif
-
         /// <summary>
         /// Adds the specified <see cref="T:System.Data.Common.DbParameter" /> object
         /// to the <see cref="T:System.Data.Common.DbParameterCollection" />.
