@@ -32,6 +32,7 @@ namespace web_editor_seo
             services.AddMvc();
 
             services.AddTransient<IApplicationsService, ApplicationsService>();
+            services.AddTransient<IMarketPagesService, MarketPagesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
