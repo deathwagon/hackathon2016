@@ -23,6 +23,11 @@ namespace web.Controllers
                 return NotFound();
             }
 
+            if (pageData.StatusCode == (int)HttpStatusCode.MovedPermanently)
+            {
+                return Redirect(pageData.PageData.MarketPath + $"?market={market}");
+            }
+
             return View(pageData);
         }
 
