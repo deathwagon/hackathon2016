@@ -23,16 +23,19 @@ namespace api_seo.Services
             var query = "select * from seo.pages_data_active";
             var results = _cassandraData.ActiveSession.Execute(query);
 
-            foreach(var rowData in results) 
+            foreach(var row in results) 
             {
-                var pageData = new PageDataModel
-                {
-                    AppId = rowData.GetValue<int>("app_id"),
-                    PageId = rowData.GetValue<string>("page_id"),
-                    Market = rowData.GetValue<string>("market"),
-                    MarketPath = rowData.GetValue<string>("market_path")
-                };
-                result.Add(pageData);
+                var pageDataModel = new PageDataModel();
+                pageDataModel.AppId = row.GetValue<int>("app_id");
+                pageDataModel.PageId = row.GetValue<string>("page_id");
+                pageDataModel.Market = row.GetValue<string>("market");
+                pageDataModel.Version = row.GetValue<int>("version");
+
+                var data = row.GetValue<SortedDictionary<string, string>>("data");
+                pageDataModel.Data = new Dictionary<string,string>(data);
+
+                pageDataModel.MarketPath = row.GetValue<string>("market_path");
+                result.Add(pageDataModel);
             }
 
             return result;
