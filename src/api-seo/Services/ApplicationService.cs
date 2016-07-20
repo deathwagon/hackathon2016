@@ -36,7 +36,7 @@ namespace api_seo.Services
         
         public ApplicationDataModel Get(int id) 
         {
-            var statement = _database.ActiveSession.Prepare("select * from seo.applications WHERE app_id = :app_id"); 
+            var statement = _database.ActiveSession.Prepare("select * from seo.applications WHERE id = :app_id"); 
             
             var results = _database.ActiveSession.Execute(statement.Bind( new { app_id = id} ));
 
@@ -53,25 +53,20 @@ namespace api_seo.Services
         
         public void Create(ApplicationDataModel model) 
         {
-            System.Console.WriteLine("application model data: {0}, {1}", model.ApplicationID, model.ApplicationName);
-            var statement = _database.ActiveSession.Prepare("insert into seo.applications (app_id, app_name) values(:app_id, :app_name)");
-            var result = _database.ActiveSession.Execute(statement.Bind(new { app_id = model.ApplicationID, app_name = model.ApplicationName }));
-                
-                
-            System.Console.WriteLine("result: {0}", result);
-            
+            var statement = _database.ActiveSession.Prepare("insert into seo.applications (id, name) values(:app_id, :app_name)");
+            var result = _database.ActiveSession.Execute(statement.Bind(new { app_id = model.ApplicationID, app_name = model.ApplicationName }));  
         }
         
         public void Update(int id, ApplicationDataModel model)
         {
-            var statement = _database.ActiveSession.Prepare("update seo.applications set app_name = :app_name where app_id = :app_id");
+            var statement = _database.ActiveSession.Prepare("update seo.applications set name = :app_name where id = :app_id");
             var result = _database.ActiveSession.Execute(statement.Bind(new { app_id = id, 
                 app_name = model.ApplicationName }));
         }
         
         public void Delete(int id)
         {
-            var statement = _database.ActiveSession.Prepare("delete from seo.applications where app_id = :app_id");
+            var statement = _database.ActiveSession.Prepare("delete from seo.applications where id = :app_id");
             var result = _database.ActiveSession.Execute(statement.Bind(new { app_id = id}));
         }
     }
