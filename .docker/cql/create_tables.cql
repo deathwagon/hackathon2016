@@ -1,6 +1,6 @@
 CREATE TABLE seo.applications (
 	id int PRIMARY KEY,
-	app_name text
+	name text
 );
 
 CREATE TABLE seo.pages (
@@ -21,6 +21,7 @@ CREATE TABLE seo.pages_data (
 	PRIMARY KEY (page_id, app_id, market, version)
 );
 
+CREATE INDEX ON seo.pages_data( app_id );
 CREATE INDEX ON seo.pages_data( market );
 
 CREATE TABLE seo.pages_data_active (
@@ -30,7 +31,8 @@ CREATE TABLE seo.pages_data_active (
 	version int,
 	market_path text,
 	data map<text, text>,
-	PRIMARY KEY (app_id, page_id, market)
+	PRIMARY KEY (page_id, app_id, market)
 );
 
+CREATE INDEX ON seo.pages_data_active( app_id );
 CREATE INDEX ON seo.pages_data_active( market );
