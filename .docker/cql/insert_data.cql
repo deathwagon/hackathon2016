@@ -1,15 +1,11 @@
-INSERT INTO seo.applications (id, app_name) VALUES (1, 'sales');
-INSERT INTO seo.applications (id, app_name) VALUES (2, 'help');
-
+INSERT INTO seo.applications (id, name) VALUES (1, 'sales');
+INSERT INTO seo.applications (id, name) VALUES (2, 'help');
 
 
 INSERT INTO seo.pages (id, app_id, path) VALUES ('website-builder', 1, '/websites/website-builder');
 INSERT INTO seo.pages (id, app_id, path) VALUES ('web-hosting', 1, '/hosting/web-hosting');
-
 INSERT INTO seo.pages (id, app_id, path) VALUES ('680', 2, '/manage-dns-680');
 INSERT INTO seo.pages (id, app_id, path) VALUES ('420', 2, '/add-private-registration-420');
-
-
 
 
 INSERT INTO seo.pages_data (app_id, page_id, market, version, market_path, data) VALUES (1, 'website-builder', 'en-US', 1, '/websites/website-builder', null);
