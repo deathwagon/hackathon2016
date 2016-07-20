@@ -80,6 +80,13 @@ namespace web_editor_seo
                     name: "pagedata",
                     template: "pagedata/{controller=PageData}/{action=Index}");
             });
+
+                        app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "success",
+                    template: "success/{controller=Success}/{action=Index}");
+            });
         }
     }
 }

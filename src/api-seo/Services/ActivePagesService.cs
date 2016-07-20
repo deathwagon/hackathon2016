@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace api_seo.Services
 {
     public class ActivePagesService : IActivePagesService
-    {
+    { 
         private ICassandraData _database;
 
         public ActivePagesService(ICassandraData database)

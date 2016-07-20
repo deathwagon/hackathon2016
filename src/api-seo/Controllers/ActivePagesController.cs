@@ -31,13 +31,6 @@ namespace api_seo.Controllers
             return result;       
         }
 
-        [HttpGet("{appId}/{market}")]
-        public IEnumerable<PageDataModel> Get(string appId, string market)
-        {
-            var result = _activePagesService.GetAll(appId, market);
-            return result;       
-        }
-
         [HttpPost]
         public void Post([FromBody]PageDataModel value)
         {
