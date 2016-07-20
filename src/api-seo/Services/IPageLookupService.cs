@@ -1,3 +1,5 @@
+using api_seo.Models;
+
 namespace api_seo.Services
 {
     public interface IPageLookupService

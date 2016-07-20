@@ -30,7 +30,7 @@
                     <ul>
                         @foreach (var page in Model.Pages)
                         {
-                            <li><a href="#">@page.Id</a> (@page.AppId:@page.Path)</li>
+                            <li><a href="/marketpages?pageId=@page.Id">@page.Id</a> (@page.AppId:@page.Path)</li>
                         }
                     </ul>
                 </div>
