@@ -123,18 +123,6 @@ namespace Cassandra.Data
         /// </returns>
         public override string SourceColumn { get; set; }
 
-#if !NETCORE
-        /// <summary>
-        /// Gets or sets the <see cref="T:System.Data.DataRowVersion" />
-        /// to use when loading <see cref="P:System.Data.IDataParameter.Value" />.
-        /// </summary>
-        /// <returns>
-        /// One of the <see cref="T:System.Data.DataRowVersion" /> values.
-        /// The default is Current.
-        /// </returns>
-        public override DataRowVersion SourceVersion { get; set; }
-#endif
-
         /// <summary>
         /// Gets or sets the value of the parameter. 
         /// If no type information was provided earlier, the type of the parameter will be

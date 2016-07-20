@@ -14,11 +14,7 @@ namespace Cassandra
         /// </summary>
         public static object[] GetCustomAttributesLocal(this Type member, Type attributeType, bool inherit)
         {
-#if !NETCORE
-            return member.GetCustomAttributes(attributeType, inherit);
-#else
             return (object[])member.GetTypeInfo().GetCustomAttributes(attributeType, inherit);
-#endif
         }
 
         /// <summary>
@@ -34,11 +30,7 @@ namespace Cassandra
         /// </summary>
         public static bool IsGenericTypeLocal(this Type type)
         {
-#if !NETCORE
-            return type.IsGenericType;
-#else
             return type.GetTypeInfo().IsGenericType;
-#endif
         }
 
         /// <summary>
@@ -46,11 +38,7 @@ namespace Cassandra
         /// </summary>
         public static bool IsInterfaceLocal(this Type type)
         {
-#if !NETCORE
-            return type.IsInterface;
-#else
             return type.GetTypeInfo().IsInterface;
-#endif
         }
 
         /// <summary>
@@ -58,11 +46,7 @@ namespace Cassandra
         /// </summary>
         public static bool IsEnumLocal(this Type type)
         {
-#if !NETCORE
-            return type.IsEnum;
-#else
             return type.GetTypeInfo().IsEnum;
-#endif
         }
 
         /// <summary>
@@ -70,11 +54,7 @@ namespace Cassandra
         /// </summary>
         public static bool IsAssignableFromLocal(this Type type, Type other)
         {
-#if !NETCORE
-            return type.IsAssignableFrom(other);
-#else
             return type.GetTypeInfo().IsAssignableFrom(other);
-#endif
         }
 
         /// <summary>
@@ -82,11 +62,7 @@ namespace Cassandra
         /// </summary>
         public static Type[] GetGenericArgumentsLocal(this Type type)
         {
-#if !NETCORE
-            return type.GetGenericArguments();
-#else
             return type.GetTypeInfo().GetGenericArguments();
-#endif
         }
 
         /// <summary>
@@ -94,11 +70,7 @@ namespace Cassandra
         /// </summary>
         public static Type GetInterfaceLocal(this Type type, string name)
         {
-#if !NETCORE
-            return type.GetInterface(name);
-#else
             return type.GetTypeInfo().GetInterface(name);
-#endif
         }
 
         /// <summary>
@@ -106,11 +78,7 @@ namespace Cassandra
         /// </summary>
         public static Type[] GetInterfacesLocal(this Type type)
         {
-#if !NETCORE
-            return type.GetInterfaces();
-#else
             return type.GetTypeInfo().GetInterfaces();
-#endif
         }
 
         /// <summary>
@@ -118,11 +86,7 @@ namespace Cassandra
         /// </summary>
         public static TypeAttributes GetAttributesLocal(this Type type)
         {
-#if !NETCORE
-            return type.Attributes;
-#else
             return type.GetTypeInfo().Attributes;
-#endif
         }
 
         /// <summary>
@@ -130,11 +94,7 @@ namespace Cassandra
         /// </summary>
         public static PropertyInfo GetPropertyLocal(this Type type, string name)
         {
-#if !NETCORE
-            return type.GetProperty(name);
-#else
             return type.GetTypeInfo().GetProperty(name);
-#endif
         }
 
         /// <summary>
@@ -142,11 +102,7 @@ namespace Cassandra
         /// </summary>
         public static bool IsAttributeDefinedLocal(this Type type, Type attributeType, bool inherit)
         {
-#if !NETCORE
-            return Attribute.IsDefined(type, attributeType, inherit);
-#else
             return type.GetTypeInfo().IsDefined(attributeType, inherit);
-#endif
         }
 
         /// <summary>
@@ -154,11 +110,7 @@ namespace Cassandra
         /// </summary>
         public static bool IsSubclassOfLocal(this Type type, Type other)
         {
-#if !NETCORE
-            return type.IsSubclassOf(other);
-#else
             return type.GetTypeInfo().IsSubclassOf(other);
-#endif
         }
     }
 }
