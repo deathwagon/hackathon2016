@@ -9,7 +9,7 @@ namespace web_editor_seo.Controllers
 {
     public class PagesController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(int appId)
         {
             return View("Index", new PagesModel());
         }
