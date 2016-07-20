@@ -61,11 +61,6 @@ namespace api_seo.Services
             return lst;
         }
 
-        public PageData Get(Guid id)
-        {
-            return new PageData();
-        }
-
         public void Create(PageDataModel model)
         {
             //var updateStatementFormat = _database.ActiveSession.Prepare("INSERT INTO seo.pages (id, app_id, path) VALUES (:PageId, :AppId, :EnglishPath)");
