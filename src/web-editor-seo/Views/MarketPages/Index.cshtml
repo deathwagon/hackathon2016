@@ -1,3 +1,5 @@
+@model web_editor_seo.Models.MarketPageModel
+
 <div class="container">
     <div class="page-header">
         <h2>Select a Market</h2>
@@ -10,22 +12,15 @@
             <table style="width:100%">
                 <tr>
                     <th>Market</th>
-                    <th>Meta Data 1</th>
-                    <th>Meta Data 2</th>
-                    <th>Meta Data 3</th>
                 </tr>
-                <tr>
-                    <td>en-US</td>
-                    <td>a</td>
-                    <td>b</td>
-                    <td>c</td>
-                </tr>
-                <tr>
-                    <td>es-MX</td>
-                    <td>a</td>
-                    <td>b</td>
-                    <td>c</td>
-                </tr>
+                 @{
+                        foreach(var market in Model.MarketPages)
+                        {
+                            <tr>
+                                <td>@market.Market</td>
+                            </tr>
+                        }
+                    }
             </table>
             <button class="btn btn-success pull-right">Next</button>
         </div>

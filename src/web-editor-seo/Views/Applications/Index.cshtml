@@ -11,14 +11,14 @@
         <div class="panel-body">
             <div class="col-md-12">
                 <div class="col-md-6">
-                    <ul>
+                    <form>
                     @{
                         foreach(var application in Model.Applications)
                         {
-                            <li><a href="/pages?appId=@application.Id">@application.Name</a></li>
+                            <input type="radio" name="@application.Name" value="@application.Name"> @application.Name <br>
                         }
                     }
-                    </ul>
+                    </form>
                 </div>
             </div>
                 <button class="btn btn-success pull-right">Next</button>

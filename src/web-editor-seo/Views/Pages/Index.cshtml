@@ -1,3 +1,5 @@
+@model web_editor_seo.Models.PagesModel
+
 <div class="container">
     <div class="page-header">
         <h2>Select a Page</h2>
@@ -25,10 +27,14 @@
                 </div>
 
                 <div class="col-md-12">
-                    <ul>
-                        <li><a href="#">Website Builder 1</a></li>
-                        <li><a href="#">Website Builder 2</a></li>
-                    </ul>
+                    <form>
+                    @{
+                        foreach(var page in Model.Pages)
+                        {
+                            <input type="radio" name="@page.Path" value="@page.Path"> @application.Path <br>
+                        }
+                    }
+                    </form>
                 </div>
 
                 <button type="button" class="btn btn-success">

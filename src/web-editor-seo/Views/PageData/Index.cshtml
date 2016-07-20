@@ -1,3 +1,5 @@
+@model web_editor_seo.Models.PageDataModel
+
 <div class="container">
     <div class="page-header">
         <h2>Page Data</h2>
@@ -13,21 +15,11 @@
             <table style="width:100%">
                 <tr>
                     <th>Version</th>
-                    <th>Published</th>
-                    <th>Publisher Name</th>
-                    <th>Date Published</th>
+                    <th>Market</th>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>Yes</td>
-                    <td>Alek Mitrevski</td>
-                    <td>7/19//2016</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>No</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
+                    <td>@Model.Version</td>
+                    <td>@Model.Market</td>
                 </tr>
             </table>
 
@@ -47,7 +39,7 @@
             <div class="col-md-12">
                 <div class="col-md-6">
                     <label class="col-md-4" for="local-url">Localized URL: </label>
-                    <input type="text" id="local-url" class="form-control">
+                    <input type="text" id="local-url" class="form-control" value="@Model.MarketPath">
                 </div>
             </div>
         </div>
@@ -58,30 +50,23 @@
         </div>
         <div class="panel-body">
             <div class="input-group">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <label class="col-md-2" for="title">Title: </label>
-                        <input type="text" id="title" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <label class="col-md-6" for="subtitle">Subtitle: </label>
-                        <input type="text" id="subtitle" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <label class="col-md-6" for="banner">Banner: </label>
-                        <input type="text" id="banner" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <label class="col-md-6" for="image">Image: </label>
-                        <input type="text" id="image" class="form-control">
-                    </div>
-                </div>
+                @{
+                    foreach(var data in Model.Data)
+                    {
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <label class="col-md-2" for="title">Title: </label>
+                                <input type="text" id="title" class="form-control" value="@data.Key">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <label class="col-md-6" for="subtitle">Subtitle: </label>
+                                <input type="text" id="subtitle" class="form-control" value="@data.Value>
+                            </div>
+                        </div>
+                    }
+                }
                 <button class="btn btn-success pull-right">Next</button>
             </div>
         </div>
