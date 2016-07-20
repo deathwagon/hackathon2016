@@ -29,9 +29,6 @@ namespace Cassandra
     ///  purpose, the list of hosts that have been tried along with the failure cause
     ///  can be retrieved using the <link>#errors</link> method.
     /// </summary>
-#if !NETCORE
-    [Serializable]
-#endif
     public class NoHostAvailableException : DriverException
     {
         /// <summary>
@@ -44,14 +41,6 @@ namespace Cassandra
         {
             Errors = errors;
         }
-
-#if !NETCORE
-        protected NoHostAvailableException(SerializationInfo info, StreamingContext context) :
-            base(info, context)
-        {
-            
-        }
-#endif
 
         private static String MakeMessage(Dictionary<IPEndPoint, Exception> errors)
         {

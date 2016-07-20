@@ -32,3 +32,5 @@ CREATE TABLE seo.pages_data_active (
 	data map<text, text>,
 	PRIMARY KEY (app_id, page_id, market)
 );
+
+CREATE INDEX ON seo.pages_data_active( market );
