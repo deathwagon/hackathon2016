@@ -5,7 +5,6 @@ namespace api_seo.Models
     public class PageDataModel
     {
         public string PageId { get; set; }
-        public string EnglishPath { get; set; }
         public int AppId {get; set;}
         public string Market { get; set; }
         public int Version { get; set; }
