@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using web_editor_seo.Services;
 
 namespace web_editor_seo
 {
@@ -29,6 +30,8 @@ namespace web_editor_seo
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddTransient<IApplicationsService, ApplicationsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,8 +55,36 @@ namespace web_editor_seo
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "applications",
+                    template: "{controller=Applications}/{action=Index}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "pages",
+                    template: "pages/{controller=Pages}/{action=Index}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "marketpages",
+                    template: "marketpages/{controller=MarketPages}/{action=Index}");
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "pagedata",
+                    template: "pagedata/{controller=PageData}/{action=Index}");
+            });
+
+                        app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "success",
+                    template: "success/{controller=Success}/{action=Index}");
             });
         }
     }

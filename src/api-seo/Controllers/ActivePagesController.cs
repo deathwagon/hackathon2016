@@ -16,17 +16,19 @@ namespace api_seo.Controllers
             _activePagesService = activePagesService;
         }
 
-        [HttpGet]
-        public IEnumerable<PageData> Get(string appId, string market)
+
+        [HttpGet()]
+        public IEnumerable<PageDataModel> Get()
         {
-            var result = _activePagesService.GetAll(appId, market);
+            var result = _activePagesService.GetAll(string.Empty, string.Empty);
             return result;
         }
 
-        [HttpGet("{id}")]
-        public PageDataModel Get(Guid id)
+        [HttpGet("{appId}")]
+        public IEnumerable<PageDataModel> Get(string appId)
         {
-            return new PageDataModel();
+            var result = _activePagesService.GetAll(appId, string.Empty);
+            return result;       
         }
 
         [HttpPost]

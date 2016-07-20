@@ -9,7 +9,7 @@ namespace api_seo.Services
         private static readonly string[] ContactPoints = { "137.135.48.24" };
         private const string User = "cassandra";
         private const string Password = "80snywhE";
-        private string _keySpace = "";
+        private string _keySpace = "seo";
 
         public CassandraData()
         {

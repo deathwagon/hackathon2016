@@ -1,0 +1,7 @@
+PUT http://localhost:5000/seo/v1/application/3 HTTP/1.1
+content-type: application/json
+
+{
+    "ApplicationID": 3,
+    "ApplicationName": "new-mya"    
+}

@@ -34,7 +34,9 @@ namespace api_seo
             services.AddTransient<IActivePagesService, ActivePagesService>();
             services.AddTransient<IPageLookupService, PageLookupService>();
             services.AddTransient<IPageUrlService, PageUrlService>();
+            services.AddTransient<IApplicationService, ApplicationService>();
             services.AddSingleton<ICassandraData, CassandraData>();
+            services.AddSingleton<IPageService, PageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
