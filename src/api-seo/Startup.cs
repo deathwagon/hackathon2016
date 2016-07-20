@@ -34,6 +34,7 @@ namespace api_seo
             services.AddTransient<IActivePagesService, ActivePagesService>();
             services.AddTransient<IPageLookupService, PageLookupService>();
             services.AddTransient<IPageUrlService, PageUrlService>();
+            services.AddTransient<IApplicationService, ApplicationService>();
             services.AddSingleton<ICassandraData, CassandraData>();
             services.AddSingleton<IPageService, PageService>();
         }
