@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:latest
 
-COPY . /app
+COPY ./src/api-seo /app
 
 WORKDIR /app
 
