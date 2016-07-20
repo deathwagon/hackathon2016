@@ -34,6 +34,7 @@ namespace api_seo
             services.AddTransient<IActivePagesService, ActivePagesService>();
             services.AddTransient<IRedirectService, RedirectService>();
             services.AddTransient<IPageUrlService, PageUrlService>();
+            services.AddTransient<IApplicationService, ApplicationService>();
             services.AddSingleton<ICassandraData, CassandraData>();
         }
 
