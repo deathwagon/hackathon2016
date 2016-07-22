@@ -12,7 +12,19 @@
 
         docker-compose down
 
-## Test
+## Local Cassandra
 
+        //CQLSH_HOST=[docker_machine_ip] cqlsh
         CQLSH_HOST=192.168.99.100 cqlsh
         cqlsh> SELECT * FROM seo.applications;
+
+## Local Web Apps
+
+        // SEO API
+        http://192.168.99.100:5002/seo/v1/application
+        
+        // SEO Editor
+        http://192.168.99.100:5001/
+        
+        // Consuming Web Application
+        http://192.168.99.100:5280/websites/website-builder?market=es-ES
