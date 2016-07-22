@@ -1,6 +1,6 @@
 # hackathon2016
 
-## To get the container running with cassandra
+## To get the container running
 
         docker-compose build
         docker-compose up -d
