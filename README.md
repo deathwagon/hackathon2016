@@ -7,6 +7,14 @@
         docker exec cassandra cqlsh -f /var/www/.docker/cql/create_keyspace.cql
         docker exec cassandra cqlsh -f /var/www/.docker/cql/create_tables.cql
         docker exec cassandra cqlsh -f /var/www/.docker/cql/insert_data.cql
+        
+## Quick checks to makes sure everything is running
+
+        // Show running docker machines
+        docker-machine ls
+
+        // Show processes running that were started by docker-compose
+        docker-compose ps
 
 ## When you are done, you tear it down like this
 
