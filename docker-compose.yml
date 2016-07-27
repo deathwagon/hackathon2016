@@ -1,22 +1,52 @@
 version: '2'
 
 services:
-     cassandra:
-          container_name: cassandra
-          build:
-               context: .
-               dockerfile: .docker/docker-cassandra.dockerfile
-          ports:
-               - "7000:7000"
-               - "7001:7001"
-               - "7199:7199"
-               - "9042:9042"
-               - "9160:9160"
-          env_file:
-               - ./.docker/env/cassandra.env
-          networks:
-               - seo-app-network
+    seo-api:
+        container_name: seo-api
+        build:
+            context: .
+            dockerfile: .docker/docker-api.dockerfile
+        ports:
+            - "5002:5002"
+        networks:
+            - seo-app-network
+
+    seo-editor:
+        container_name: seo-editor
+        build:
+            context: .
+            dockerfile: .docker/docker-editor.dockerfile
+        ports:
+            - "5001:5001"
+        networks:
+            - seo-app-network
+
+    seo-web:
+        container_name: seo-web
+        build:
+            context: .
+            dockerfile: .docker/docker-web.dockerfile
+        ports:
+            - "5280:5280"
+        networks:
+            - seo-app-network
+     
+    cassandra:
+        container_name: cassandra
+        build:
+            context: .
+            dockerfile: .docker/docker-cassandra.dockerfile
+        ports:
+            - "7000:7000"
+            - "7001:7001"
+            - "7199:7199"
+            - "9042:9042"
+            - "9160:9160"
+        env_file:
+            - ./.docker/env/cassandra.env
+        networks:
+            - seo-app-network
 
 networks:
-     seo-app-network:
-          driver: bridge
+    seo-app-network:
+        driver: bridge

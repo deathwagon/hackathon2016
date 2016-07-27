@@ -23,6 +23,7 @@ namespace web
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseUrls("http://0.0.0.0:5280")
                 .Build();
 
             host.Run();
