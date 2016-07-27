@@ -9,22 +9,40 @@ namespace death_wagon_trail
     {
         public static void Main(string[] args)
         {
-            var gameDays = 5;
-            var dayLength = 3000;
+            var gameDays = 10;
+            var dayLength = 2000;
             var app = new Game(gameDays, dayLength);
 
-            app.AddPlayer("Mike");
+            app.AddPlayer("Micco");
             app.AddPlayer("Tim");
             app.AddPlayer("Stuart");
             app.AddPlayer("Alek");
             app.AddPlayer("Nichole");
+            app.AddPlayer("Dan");
+            app.AddPlayer("Dom");
+            app.AddPlayer("Ryan");
+            app.AddPlayer("Shane");
+            app.AddPlayer("Raj");
 
-            app.Start();
+            System.Console.WriteLine(app.Start());
 
-            while(app.CheckLiveAnotherDay())
+            while(app.CheckLiveAnotherDay() && !app.CheckIsTripComplete())
             {
-                app.LiveADay();
-                app.WaitUntilMorning();
+                System.Console.WriteLine("================================================================================");
+
+                System.Console.WriteLine(app.PaintTheScene());
+
+                System.Console.WriteLine(app.LiveADay());
+
+                System.Console.WriteLine(app.WaitUntilMorning());
+                
+                System.Console.ForegroundColor = ConsoleColor.Green; 
+                System.Console.WriteLine(app.ReportProvisions());
+                System.Console.ResetColor();
+
+                System.Console.WriteLine(app.ReportConditions());
+
+                System.Threading.Thread.Sleep(dayLength);
             }
         }
     }
