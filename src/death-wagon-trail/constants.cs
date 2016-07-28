@@ -9,7 +9,8 @@ namespace death_wagon_trail.EnumsAndConstants
         None2,
         Attacked,
         None3,
-        Lost
+        Lost,
+        None4
     };
 
     public enum Hunt
@@ -112,19 +113,20 @@ namespace death_wagon_trail.EnumsAndConstants
             "You and your companions make it through the night without a problem.",
             "You have been ATTACKED overnight! Bandits destroy your water supplies.",
             "You and your companions sleep peacefully through the night.",
-            "You and your companions left medical supplies back at last camp."
+            "You and your companions left medical supplies back at last camp.",
+            "A fire burns all night long warming the tired and cold bones of your party. Everyone rests."
         };
 
         public static readonly String[] GameAction = {
-            "{0} decided to do nothing today.",
-            "{0} is going hunting.",
-            "{0} is fishing.",
-            "{0} is out gathering food.",
-            "{0} is boiling water.",
-            "{0} is healing.",
-            "{0} is resting.",
-            "{0} is sleeping.",
-            "{0} is gathering herbs."    
+            "{0} decided to do nothing today. ",
+            "{0} is hunting. ",
+            "{0} is fishing. ",
+            "{0} is out gathering food. ",
+            "{0} is boiling water. ",
+            "{0} is healing. ",
+            "{0} is resting. ",
+            "{0} is sleeping. ",
+            "{0} is gathering herbs. "    
         };
 
         public static readonly String[] Condition = {

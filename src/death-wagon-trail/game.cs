@@ -136,6 +136,12 @@ namespace death_wagon_trail
             return r.Next(0, Enum.GetNames(typeof(BadThings)).Length);
         }
 
+        public int RandomHunt()
+        {
+            Random r = new Random(Guid.NewGuid().GetHashCode());
+            return r.Next(0, Enum.GetNames(typeof(Hunt)).Length);
+        }
+
         public void AddPlayer(string name)
         {
             players.Add(name, new Player(name, (int)Condition.None, (int)Health.Good));
@@ -191,6 +197,9 @@ namespace death_wagon_trail
 
             Player player = RandomPlayer();
 
+            if (IsPlayerDead(player))
+                return string.Empty;
+
             var gameAction = RandomGameAction();
             var condition = RandomCondition();
 
@@ -207,15 +216,39 @@ namespace death_wagon_trail
 
             if (aday >= baseConditionChance) 
             {
-                sb.AppendFormat(Constants.GameAction[gameAction], player.Name);
                 player.GameAction = (int)gameAction;
+                sb.AppendFormat(Constants.GameAction[gameAction], player.Name);
 
                 switch((GameAction)player.GameAction)
-                {
+                {                    
                     case GameAction.Hunt:
+                        int hunt = RandomHunt();
+                        sb.AppendFormat(Constants.Hunt[hunt], player.Name);                    
+
+                        switch((Hunt)hunt) 
+                        {
+                            case Hunt.Bear:
+                                FoodSupply += 3;
+                                sb.Append(" Food rations have increased by 3");
+                                break;
+                            case Hunt.Deer:
+                                FoodSupply += 2;
+                                sb.Append(" Food rations have increased by 2");
+                                break;
+                            case Hunt.Rabbit:
+                            case Hunt.Squirrel:
+                                sb.Append(" Food rations have increased by 1");
+                                FoodSupply ++;
+                                break;
+                            default:
+                                break;
+                        };
+                       
+                        break;
                     case GameAction.Fish:
                     case GameAction.Farm:
                         FoodSupply ++;
+                        sb.Append(" Food rations have increased by 1");
                         break;
                     case GameAction.Purify:
                         WaterSupply ++;
@@ -225,10 +258,13 @@ namespace death_wagon_trail
                     case GameAction.Sleep:
                         if (MedicalSupply > 0 ) 
                         {
-                            player.Health = (int)Health.Good;
-                            player.Condition = (int)Condition.None;
+                            if ( player.Health != (int)Health.Good)
+                            {
+                                player.Health = (int)Health.Good;
+                                player.Condition = (int)Condition.None;
 
-                            MedicalSupply --;
+                                MedicalSupply --;
+                            }
                         }
 
                         break;
@@ -238,6 +274,7 @@ namespace death_wagon_trail
                     default:
                         break;                        
                 }
+                
             }
             else
             {               
@@ -345,9 +382,12 @@ namespace death_wagon_trail
         {
             var badThings = RandomBadThings();
             var sb = new StringBuilder();
+
             switch((BadThings)badThings)
             {
                 case BadThings.Robbed:
+                    sb.Append(Constants.BadThings[badThings]);
+
                     if (FoodSupply > 0) 
                     {
                         FoodSupply --;
@@ -355,6 +395,8 @@ namespace death_wagon_trail
                     }
                     break;
                 case BadThings.Attacked:
+                    sb.Append(Constants.BadThings[badThings]);
+
                     if (WaterSupply > 0)
                     {
                         WaterSupply --;
@@ -362,19 +404,49 @@ namespace death_wagon_trail
                     }
                     break;
                 case BadThings.Lost:
+                    sb.Append(Constants.BadThings[badThings]);
+
                     if (MedicalSupply > 0)
                     {
                         MedicalSupply --;
                         sb.Append("Your medical supplies have been decreased by 1.");
                     }
-                    break;                
+                    break;   
+                default:
+                    bool useDefault = true;
+                    foreach(Player p in players.Values) 
+                    {
+                        if (p.Condition != (int)Condition.None && !IsPlayerDead(p))
+                        {
+                            p.Health ++;
+                            if ( IsPlayerDead(p) )
+                            {
+                                sb.AppendFormat("{0} has died from {1}", p.Name, (Condition)p.Condition);
+                            }
+                            else {
+                                sb.AppendFormat("{0} is not feeling well and needs medical attention.", p.Name);
+                            }
+
+                            useDefault = false;
+                        }
+                    } 
+
+                    if (useDefault)
+                    {
+                        sb.Append(Constants.BadThings[badThings]);
+                    }
+
+                    break;        
             }
 
-            return String.Format("{0} {1}",Constants.BadThings[badThings], sb);
+            return sb.ToString();
         }
 
         public String ReportCondition(Player player)
         {
+            if (IsPlayerDead(player))
+                return String.Format("{0} has died from {1}.", player.Name, (Condition)player.Condition);
+
             return String.Format("{0,-20} Condition: {1,-15} Health: {2,-15}", player.Name, (Condition)player.Condition, (Health)player.Health);
         }
     }
