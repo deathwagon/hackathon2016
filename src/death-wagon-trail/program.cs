@@ -9,7 +9,7 @@ namespace death_wagon_trail
     {
         public static void Main(string[] args)
         {
-            var gameDays = 10;
+            var gameDays = 30;
             var dayLength = 2000;
             var app = new Game(gameDays, dayLength);
 

@@ -190,6 +190,8 @@ namespace death_wagon_trail
         {
             ResetPlayerActions();
 
+            CurrentDay += 1;
+
             var elapsedDateTime = DateTime.Now;
             var elapsedTicks = DateTime.Now.Ticks - CurrentDateTime.Ticks;
 
@@ -201,9 +203,11 @@ namespace death_wagon_trail
                 return string.Empty;
 
             var gameAction = RandomGameAction();
-            var condition = RandomCondition();
 
-            CurrentDay += 1;
+            if (gameAction == (int)GameAction.None)
+                return string.Empty;
+
+            var condition = RandomCondition();
 
             Random r = new Random();
             int aday = r.Next(0,100);
@@ -421,10 +425,13 @@ namespace death_wagon_trail
                             p.Health ++;
                             if ( IsPlayerDead(p) )
                             {
-                                sb.AppendFormat("{0} has died from {1}", p.Name, (Condition)p.Condition);
+                                sb.AppendFormat(Constants.Death[p.Condition], p.Name);
+                                sb.AppendLine();
+                                p.DaysAlive = CurrentDay;
                             }
                             else {
                                 sb.AppendFormat("{0} is not feeling well and needs medical attention.", p.Name);
+                                sb.AppendLine();
                             }
 
                             useDefault = false;
@@ -444,8 +451,10 @@ namespace death_wagon_trail
 
         public String ReportCondition(Player player)
         {
-            if (IsPlayerDead(player))
-                return String.Format("{0} has died from {1}.", player.Name, (Condition)player.Condition);
+            if (IsPlayerDead(player)) 
+            {
+                return String.Format("{0} Lived for {1} days.", String.Format(Constants.Death[player.Condition], player.Name), player.DaysAlive);
+            }
 
             return String.Format("{0,-20} Condition: {1,-15} Health: {2,-15}", player.Name, (Condition)player.Condition, (Health)player.Health);
         }

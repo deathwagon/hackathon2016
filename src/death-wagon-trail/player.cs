@@ -6,6 +6,7 @@ namespace death_wagon_trail
         public int Condition { get; set; }
         public int Health { get; set; }
         public int GameAction { get; set; }
+        public int DaysAlive { get; set; }
         
         public Player(string name, int condition, int health, int action=0) 
         {
@@ -13,6 +14,7 @@ namespace death_wagon_trail
             Condition = condition;
             Health = health;
             GameAction = action;
+            DaysAlive = 1;
         }
     }
 }

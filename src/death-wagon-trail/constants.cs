@@ -107,14 +107,28 @@ namespace death_wagon_trail.EnumsAndConstants
 
     public class Constants
     {
+        public static readonly String[] Death = {
+            "{0} is alive.", 
+            "{0} has died from starvation.", 
+            "{0} has died from thirst.", 
+            "{0} has died from poison.", 
+            "{0) has died from typhoid.", 
+            "{0} has died from cholera.", 
+            "{0} has died from dysentery.", 
+            "{0} has died from diphtheria.", 
+            "{0} has died from the measles.", 
+            "{0} has died from the flu.", 
+            "{0} has died from a virus."
+        };
+
         public static readonly String[] BadThings = {
-            "You and your companions hold off until morning.",
-            "You have been ROBBED overnight! You lost some of your food rations.",
-            "You and your companions make it through the night without a problem.",
-            "You have been ATTACKED overnight! Bandits destroy your water supplies.",
-            "You and your companions sleep peacefully through the night.",
-            "You and your companions left medical supplies back at last camp.",
-            "A fire burns all night long warming the tired and cold bones of your party. Everyone rests."
+            "You and your companions hold off until morning. ",
+            "You have been ROBBED overnight! You lost some of your food rations. ",
+            "You and your companions make it through the night without a problem. ",
+            "You have been ATTACKED overnight! Bandits destroy your water supplies. ",
+            "You and your companions sleep peacefully through the night. ",
+            "You and your companions left medical supplies back at last camp. ",
+            "A fire burns all night long warming the tired and cold bones of your party. Everyone rests. "
         };
 
         public static readonly String[] GameAction = {
