@@ -1,3 +1,5 @@
+@model PagesModel
+
 <div class="container">
     <div class="page-header">
         <h2>Select a Page</h2>
@@ -26,8 +28,10 @@
 
                 <div class="col-md-12">
                     <ul>
-                        <li><a href="/marketpages?pageId=website-builder">Website Builder</a></li>
-                        <li><a href="/marketpages?pageId=web-hosting">Web Hosting</a></li>
+                        @foreach (var page in Model.Pages)
+                        {
+                            <li><a href="/marketpages?pageId=@page.Id">@page.Id</a> (@page.AppId:@page.Path)</li>
+                        }
                     </ul>
                 </div>
 
@@ -39,8 +43,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(function () {
-
-    })
-</script>

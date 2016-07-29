@@ -4,7 +4,7 @@ namespace web_editor_seo.Models
 {
     public class PageModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public int AppId { get; set; }
 
