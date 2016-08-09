@@ -233,15 +233,15 @@ namespace death_wagon_trail
                         {
                             case Hunt.Bear:
                                 FoodSupply += 3;
-                                sb.Append(" Food rations have increased by 3");
+                                sb.Append(" Food rations have increased by 3. ");
                                 break;
                             case Hunt.Deer:
                                 FoodSupply += 2;
-                                sb.Append(" Food rations have increased by 2");
+                                sb.Append(" Food rations have increased by 2. ");
                                 break;
                             case Hunt.Rabbit:
                             case Hunt.Squirrel:
-                                sb.Append(" Food rations have increased by 1");
+                                sb.Append(" Food rations have increased by 1. ");
                                 FoodSupply ++;
                                 break;
                             default:
@@ -252,7 +252,7 @@ namespace death_wagon_trail
                     case GameAction.Fish:
                     case GameAction.Farm:
                         FoodSupply ++;
-                        sb.Append(" Food rations have increased by 1");
+                        sb.Append(" Food rations have increased by 1. ");
                         break;
                     case GameAction.Purify:
                         WaterSupply ++;
@@ -297,7 +297,7 @@ namespace death_wagon_trail
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine();
-            sb.AppendFormat("Provisions - Food Rations: [{0}], Water: [{1}], Medical Supplies: [{2}]",
+            sb.AppendFormat("Provisions - Food Rations: [{0}], Water: [{1}], Medical Supplies: [{2}] ",
                 FoodSupply, WaterSupply, MedicalSupply);
 
             return sb.ToString();
@@ -413,7 +413,7 @@ namespace death_wagon_trail
                     if (MedicalSupply > 0)
                     {
                         MedicalSupply --;
-                        sb.Append("Your medical supplies have been decreased by 1.");
+                        sb.Append("Your medical supplies have been decreased by 1. ");
                     }
                     break;   
                 default:
@@ -430,7 +430,7 @@ namespace death_wagon_trail
                                 p.DaysAlive = CurrentDay;
                             }
                             else {
-                                sb.AppendFormat("{0} is not feeling well and needs medical attention.", p.Name);
+                                sb.AppendFormat("{0} is not feeling well and needs medical attention. ", p.Name);
                                 sb.AppendLine();
                             }
 
@@ -453,10 +453,10 @@ namespace death_wagon_trail
         {
             if (IsPlayerDead(player)) 
             {
-                return String.Format("{0} Lived for {1} days.", String.Format(Constants.Death[player.Condition], player.Name), player.DaysAlive);
+                return String.Format("{0} Lived for {1} days. ", String.Format(Constants.Death[player.Condition], player.Name), player.DaysAlive);
             }
 
-            return String.Format("{0,-20} Condition: {1,-15} Health: {2,-15}", player.Name, (Condition)player.Condition, (Health)player.Health);
+            return String.Format("{0,-20} Condition: {1,-15} Health: {2,-15} ", player.Name, (Condition)player.Condition, (Health)player.Health);
         }
     }
 }

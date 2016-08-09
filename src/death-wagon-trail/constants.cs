@@ -108,17 +108,17 @@ namespace death_wagon_trail.EnumsAndConstants
     public class Constants
     {
         public static readonly String[] Death = {
-            "{0} is alive.", 
-            "{0} has died from starvation.", 
-            "{0} has died from thirst.", 
-            "{0} has died from poison.", 
-            "{0) has died from typhoid.", 
-            "{0} has died from cholera.", 
-            "{0} has died from dysentery.", 
-            "{0} has died from diphtheria.", 
-            "{0} has died from the measles.", 
-            "{0} has died from the flu.", 
-            "{0} has died from a virus."
+            "{0} is alive. ", 
+            "{0} has died from starvation. ", 
+            "{0} has died from thirst. ", 
+            "{0} has died from poison. ", 
+            "{0) has died from typhoid. ", 
+            "{0} has died from cholera. ", 
+            "{0} has died from dysentery. ", 
+            "{0} has died from diphtheria. ", 
+            "{0} has died from the measles. ", 
+            "{0} has died from the flu. ", 
+            "{0} has died from a virus. "
         };
 
         public static readonly String[] BadThings = {
@@ -144,65 +144,65 @@ namespace death_wagon_trail.EnumsAndConstants
         };
 
         public static readonly String[] Condition = {
-            "{0} has no issues today.",
-            "{0} is thirsty and needs some water.",
-            "{0} is hungry and needs some food.",
-            "{0} is poisoned.",
-            "{0} has typhoid.",
-            "{0} has cholera.",
-            "{0} has dysentery.",
-            "{0} has diphtheria.",
-            "{0} has measles.",
-            "{0} has the bird flu.",
-            "{0} has the nile virus."
+            "{0} has no issues today. ",
+            "{0} is thirsty and needs some water. ",
+            "{0} is hungry and needs some food. ",
+            "{0} is poisoned. ",
+            "{0} has typhoid. ",
+            "{0} has cholera. ",
+            "{0} has dysentery. ",
+            "{0} has diphtheria. ",
+            "{0} has measles. ",
+            "{0} has the bird flu. ",
+            "{0} has the nile virus. "
         };
 
         public static readonly String[] Hunt = {
-            "{0} was unable to find anything suitable to hunt.",
-            "{0} shot down a large black bear using a rifle. Your food rations have increased greatly.",
-            "{0} shot down a decent buck. Your food rations have increased.",
-            "{0} was able to trap a rabbit. Your food rations have increased a little.",
-            "{0} was able to trap a squirrel. Your food rations have increased slightly."
+            "{0} was unable to find anything suitable to hunt. ",
+            "{0} shot down a large black bear using a rifle. Your food rations have increased greatly. ",
+            "{0} shot down a decent buck. Your food rations have increased. ",
+            "{0} was able to trap a rabbit. Your food rations have increased a little. ",
+            "{0} was able to trap a squirrel. Your food rations have increased slightly. "
         };
 
         public static readonly String[] Weather = {
-            "It is a bright and beautiful day. The sky is bright blue.",
-            "A low hanging fog has settled in over night. Visibility is low and danger is high. You can not travel as far today.",
-            "The sky is scattered with big puffy white clouds. The sun is moving in and out of cloud cover today.",
-            "Low dark ominous clouds hang over your travels today.",
-            "An all day rain has settled in on your travels making your movement slower today.",
-            "Not a single cloud in the sky today. The sun shines brightly against the deep blue backdrop. Warm rays shine down on your group making for a much better day.",
-            "A thick fog has settled over your travels. Visibility is limited to a few feet.",
-            "Large clouds cover most of the sky today. You glimpse brief moments of the sun as it passes through the cloud cover.",
-            "Dark clouds loom overhead today. The feeling of dread settles in over your party.",
-            "The rain is coming down in sheets and it doesn't appear that its going to let up any time soon."
+            "It is a bright and beautiful day. The sky is bright blue. ",
+            "A low hanging fog has settled in over night. Visibility is low and danger is high. You can not travel as far today. ",
+            "The sky is scattered with big puffy white clouds. The sun is moving in and out of cloud cover today. ",
+            "Low dark ominous clouds hang over your travels today. ",
+            "An all day rain has settled in on your travels making your movement slower today. ",
+            "Not a single cloud in the sky today. The sun shines brightly against the deep blue backdrop. Warm rays shine down on your group making for a much better day. ",
+            "A thick fog has settled over your travels. Visibility is limited to a few feet. ",
+            "Large clouds cover most of the sky today. You glimpse brief moments of the sun as it passes through the cloud cover. ",
+            "Dark clouds loom overhead today. The feeling of dread settles in over your party. ",
+            "The rain is coming down in sheets and it doesn't appear that its going to let up any time soon. "
         };
 
         public static readonly String[] Wind = {
-            "There is no wind today.",
-            "A slight breeze blowing in.",
-            "Its windy today. You watch as a tumbleweed makes its way across your path.",
-            "Strong winds are making travels difficult today. Blowing dusk pelt your face making it difficult to breath."
+            "There is no wind today. ",
+            "A slight breeze blowing in. ",
+            "Its windy today. You watch as a tumbleweed makes its way across your path. ",
+            "Strong winds are making travels difficult today. Blowing dusk pelt your face making it difficult to breath. "
         };
 
         public static readonly String[] Travel = {
-            "The road ahead is good. It has been well worn and the path is easily followed.",
-            "You no longer see a road infront of you. It looks like its time to make your own way.",
-            "The road ahead is covered in a thick mud from the recent rains making travel much more difficult.",
-            "You are unable to continue on the existing road. Your path ahead is blocked. You must go around and reconnect with the road."
+            "The road ahead is good. It has been well worn and the path is easily followed. ",
+            "You no longer see a road infront of you. It looks like its time to make your own way. ",
+            "The road ahead is covered in a thick mud from the recent rains making travel much more difficult. ",
+            "You are unable to continue on the existing road. Your path ahead is blocked. You must go around and reconnect with the road. "
         };
 
         public static readonly String[] Surroundings = {
-            "You and your party are travelling through tall grass. The land is fairly flat. This should make travel conditions fairly straight forward.",
-            "Large mountains loom all around you. Your journey is slow as you make your way around boulder after boulder. The region is very mountainous.",
-            "Tall pines and trees surround your party on all sides. It is green and lush.",
-            "Rolling hills as far as the eye can see."
+            "You and your party are travelling through tall grass. The land is fairly flat. This should make travel conditions fairly straight forward. ",
+            "Large mountains loom all around you. Your journey is slow as you make your way around boulder after boulder. The region is very mountainous. ",
+            "Tall pines and trees surround your party on all sides. It is green and lush. ",
+            "Rolling hills as far as the eye can see. "
         };
 
         public static readonly String[] Temperature = {
-            "It is colder than normal today.",
-            "The temperature is perfect for travelling.",
-            "The heat today is making your journey difficult. Your party uses up more water rations today."
+            "It is colder than normal today. ",
+            "The temperature is perfect for travelling. ",
+            "The heat today is making your journey difficult. Your party uses up more water rations today. "
         };
     }
 }
